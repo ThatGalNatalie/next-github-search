@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
+import styles from '../styles/Search.module.css';
+
 function Search() {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('react');
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(search);
   }
 
   function handleSearchInput(e) {
@@ -15,22 +18,27 @@ function Search() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
-          type='search'
-          aria-label='Search through site content'
-          onChange={handleSearchInput}
-        />
-        <Link
-          href={{
-            pathname: '/results',
-            query: {
-              search,
-            },
-          }}
-          as='/results'
-        >
-          <button>Search</button>
-        </Link>
+        <section className={styles.container}>
+          <input
+            className={styles.search_bar}
+            onChange={handleSearchInput}
+            name='search_bar'
+            type='search'
+            placeholder='Search...'
+          />
+
+          <Link
+            href={{
+              pathname: '/results',
+              query: {
+                search,
+              },
+            }}
+            as='/results'
+          >
+            <button className={styles.submit_btn}>🚀</button>
+          </Link>
+        </section>
       </form>
     </div>
   );

@@ -1,21 +1,30 @@
+import styles from '../styles/ResultCard.module.css';
+
 function ResultCard({ item }) {
   const {
-    id,
     name,
     full_name,
-    url,
+    html_url,
     stargazers_count,
     language,
-    license,
-    forks,
+    forks_count,
+    description,
   } = item;
 
   return (
-    <div>
+    <div className={styles.result_card}>
       <div>
-        <h1>{name}</h1>
+        <h1>
+          <a className={styles.card_link} href={html_url}>
+            {name}
+          </a>
+        </h1>
+
         <h2>{full_name}</h2>
-        <p>{stargazers_count}</p>
+        <p>⭐️{stargazers_count}</p>
+        <p>🍴{forks_count}</p>
+        <p>{description}</p>
+        <div>{language}</div>
       </div>
     </div>
   );

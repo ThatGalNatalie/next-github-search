@@ -1,0 +1,37 @@
+.container {
+  min-width: 500px;
+  margin: 10% auto;
+  display: grid;
+  place-items: center;
+}
+
+.search_bar {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 55px;
+  font-size: 2em;
+  color: #0d2840;
+  padding: 25px 70px 25px 35px;
+  transition: all 0.5s cubic-bezier(0, 0, 0.5, 1.5);
+  box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+  background: #f9f9f9 no-repeat center;
+  margin-bottom: 50px;
+}
+
+.submit_btn {
+  font-size: 2em;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  width: 160px;
+  margin-top: 0;
+  background: #fd746c;
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 40px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: solid 1px #fd746c;
+}

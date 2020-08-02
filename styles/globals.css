@@ -8,6 +8,22 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 
   font-family: 'Lato', sans-serif;
+  /* background-color: #ececec; */
+  /* background: #fd746c; 
+  background: -webkit-linear-gradient(
+    to right,
+    #ff9068,
+    #fd746c
+  );
+
+  background: linear-gradient(
+    to right,
+    #ff9068,
+    #fd746c
+  ); */
+
+  background-color: #0a1930;
+  color: #ecf1f7;
 }
 
 a {

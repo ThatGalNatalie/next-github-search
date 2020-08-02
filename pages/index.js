@@ -13,7 +13,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Title title='Search more than 57M users' />
+      <Title title='Search repos' />
       <Search />
     </div>
   );

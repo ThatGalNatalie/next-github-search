@@ -1,0 +1,50 @@
+.result_card {
+  background-color: #fd746c;
+
+  display: inline-block;
+  overflow-wrap: break-word;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.result_card:hover,
+.result_card:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em #626d8e;
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+  cursor: pointer;
+}
+
+.result_card > div > div {
+  background-color: #626d8e;
+  width: 30%;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.card_link::after {
+  width: 0%;
+  height: 2px;
+  display: block;
+  background-color: #fff;
+  content: ' ';
+  position: absolute;
+
+  left: 50%;
+  -webkit-transition: left 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: left 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.card_link:hover::after {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: #fff;
+  content: ' ';
+  position: absolute;
+  left: 0;
+}

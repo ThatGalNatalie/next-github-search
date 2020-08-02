@@ -1,5 +1,6 @@
+import React from 'react';
 import { useRouter } from 'next/router';
-import { useAPI } from '../hooks/useApi';
+import Link from 'next/link';
 
 import ResultCard from '../components/ResultCard';
 import ReactPaginate from 'react-paginate';
@@ -8,11 +9,7 @@ import styles from '../styles/Results.module.css';
 
 function Results({ data }) {
   const router = useRouter();
-  const { search } = router.query;
-  // const [data, error, retry] = useAPI(search);
   const { total_count, items } = data;
-
-  const isEmpty = (obj) => Object.keys(obj).length === 0;
 
   function handlePagination(page) {
     const { selected } = page;
@@ -24,25 +21,26 @@ function Results({ data }) {
       pathname: path,
       query: currentQuery,
     });
-
-    // retry(selected);
   }
 
-  // if (error) return <div>oh no! something went wrong</div>;
-
-  if (isEmpty(data)) {
-    return <div>Loading...</div>;
-  } else {
+  if (items !== undefined) {
     return (
       <div>
-        <h1>Total Results: {total_count}</h1>
-        {items.map((item) => {
-          return (
-            <div key={item.id}>
-              <ResultCard item={item} />
-            </div>
-          );
-        })}
+        <h1 className={styles.count}>Total: {total_count}</h1>
+        <Link href='/'>
+          <a className={styles.count}>Back to search</a>
+        </Link>
+
+        <div className={styles.container}>
+          {items.map((item) => {
+            return (
+              <div key={item.id}>
+                <ResultCard item={item} />
+              </div>
+            );
+          })}
+        </div>
+
         <ReactPaginate
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
@@ -52,9 +50,20 @@ function Results({ data }) {
           initialPage={0}
           pageCount={total_count}
           onPageChange={handlePagination}
-          containerClassName={styles.paginateWrap}
-          pageClassName={styles.paginateLi}
+          containerClassName={styles.paginate_wrap}
+          pageClassName={styles.paginate_li}
+          pageLinkClassName={styles.paginate_a}
+          activeLinkClassName={styles.paginate_active}
         />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>{data.message}</h1>
+        <Link href='/'>
+          <a className={styles.count}>Back to search</a>
+        </Link>
       </div>
     );
   }
